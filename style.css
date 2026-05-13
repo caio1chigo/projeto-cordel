@@ -1,27 +1,25 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&family=Kaushan+Script&family=Sriracha&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-@media (max-width: 768px) {
-.texto-branco,
-.texto-imagem {
-  padding: 40px 10%;
-  width: 100%;
+
+* {
+  box-sizing: border-box;
 }
-}
+
 body {
   padding-top: 139.35px;
-  margin: 0; 
+  margin: 0;
   overflow-x: hidden;
 }
 
 header {
-  position:absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   background-image: linear-gradient(#626161, #000000);
   text-align: center;
   z-index: 100;
-} 
+}
 
 header > h1 {
   color: #fff;
@@ -29,15 +27,18 @@ header > h1 {
   font-size: 5vw;
   font-weight: normal;
   margin-bottom: 20px;
-} 
+}
+
 h1 a:hover {
   text-decoration: underline;
 }
+
 header > p {
   color: white;
   font-size: 1em;
   font-weight: normal;
 }
+
 a {
   color: white;
   text-align: center;
@@ -45,13 +46,11 @@ a {
   font-size: 0.8em;
   padding: 5px;
   margin: 0px;
-} 
- h1 a:hover {
-  text-decoration: underline;
 }
+
 section {
   text-align: left;
-  padding-left: 0%; /* era padding-RIGHT, trocamos para LEFT */
+  padding-left: 0%;
   font-size: 5vw;
 }
 
@@ -59,6 +58,7 @@ section p {
   text-align: left;
   margin: 0;
 }
+
 /* fundo branco */
 .texto-branco {
   background-color: white;
@@ -70,7 +70,7 @@ section p {
 }
 
 .texto-imagem {
-  position: relative; /* necessário para o ::before funcionar */
+  position: relative;
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
@@ -80,7 +80,8 @@ section p {
   font-size: 1.3em;
   text-align: left;
   color: white;
-} 
+}
+
 .img1 {
   background-image: url(pacote-projeto/background001.jpg);
 }
@@ -89,32 +90,27 @@ section p {
   background-image: url(pacote-projeto/background002.jpg);
 }
 
-/* camada escura por cima da imagem */
-
-/*ATENÇÃO BUNDÃÃÃÃÕ! Tu podia ter usado uma tag <br> que força a quebra de linha 
-como se fosse um ENTER, bem mais prático que fazer gambiarra igual a gente fez*/
-
-/* garante que o texto fique acima da camada escura */
 .texto-imagem p {
   position: relative;
   z-index: 1;
-  background-color: rgba(0, 0, 0, 0.6); /* caixa escura só no texto */
+  background-color: rgba(0, 0, 0, 0.6);
   padding: 20px 30px;
   border-radius: 5px;
 }
+
 .texto-branco p,
 .texto-imagem p {
   display: block;
   text-align: left;
-  width: fit-content;   /* bloco do tamanho do texto */
-  margin: 25px;       /* centraliza o bloco na página */
-white-space: pre-line;
+  width: fit-content;
+  margin: 25px;
+  white-space: pre-line;
 }
+
 .texto-branco,
 .texto-imagem {
   text-align: left;
-} 
-
+}
 
 footer {
   background-color: #000000;
@@ -137,4 +133,28 @@ footer a:hover {
 
 footer > p {
   margin: 0px;
+}
+
+/* ========== MOBILE ========== */
+@media (max-width: 768px) {
+
+  body {
+    padding-top: 80px;
+  }
+
+  header > h1 {
+    font-size: 8vw;
+  }
+
+  .texto-branco,
+  .texto-imagem {
+    padding: 40px 5%;
+    background-attachment: scroll; /* parallax não funciona em mobile */
+  }
+
+  .texto-branco p,
+  .texto-imagem p {
+    margin: 15px 0;
+    width: 100%;
+  }
 }
